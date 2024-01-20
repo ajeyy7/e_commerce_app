@@ -18,6 +18,18 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text("Home"),backgroundColor: Colors.transparent,
         elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Icon(Icons.favorite),
+                SizedBox(width: 20),
+                Icon(Icons.shopping_cart)
+              ],
+            ),
+          )
+        ],
       ),
       body: SizedBox(
         child: Obx(() {
@@ -28,7 +40,7 @@ class _HomeState extends State<Home> {
           } else {
             return GridView.builder(itemCount: productController.productList.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2), itemBuilder: (context,index){
+                    crossAxisCount: 1), itemBuilder: (context,index){
                   return ProductTile(productController.productList[index]);
                 });
           }
